@@ -103,18 +103,46 @@ function mostrarModal() {
     modal.style.display = 'block';
 }
 
+// Subir la imagen seleccionada a un servidor y obtener la URL
+async function subirImagen(file) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+        // Cambia esta URL por la del servicio donde vas a subir las imágenes
+        const response = await fetch('https://api.imgur.com/3/image', {
+            method: 'POST',
+            headers: {
+                Authorization: 'Client-ID TU_CLIENT_ID', // Reemplazar con el Client ID de Imgur
+            },
+            body: formData,
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            return data.data.link; // URL de la imagen subida
+        } else {
+            throw new Error('No se pudo subir la imagen');
+        }
+    } catch (error) {
+        console.error('Error al subir la imagen:', error);
+        Swal.fire('Error', 'No se pudo subir la imagen. Intenta nuevamente.', 'error');
+        return null;
+    }
+}
+
 // Enviar datos al servidor al completar el formulario
 async function enviarFormulario(e) {
     e.preventDefault();
-    
+
     // Obtener los números seleccionados
     const selectedNumbers = [...document.querySelectorAll('.number.selected')].map(el => el.textContent.padStart(3, '0'));
 
     // Calcular el total a pagar
     const total = selectedNumbers.length * 20000;
 
-    // Asegurarse de usar una URL corta (Imgur)
-    const paymentImageURL = "https://i.imgur.com/mwFPYq0.jpeg";
+    // Usar la URL de la imagen de la vista previa
+    const paymentImageURL = paymentImagePreview.src;
 
     // Obtener los datos del formulario
     const formData = {
@@ -130,7 +158,7 @@ async function enviarFormulario(e) {
         Total: total,
         PaymentMethod: document.getElementById('paymentMethod').value,
         PaymentDetail: document.getElementById('paymentDetail').value,
-        PaymentImageURL: paymentImageURL,
+        PaymentImageURL: paymentImageURL, // Enviar la URL de la imagen subida
     };
 
     try {
@@ -183,25 +211,25 @@ async function enviarFormulario(e) {
 }
 
 // Manejar el evento de cambio del input de archivo
-paymentImageInput.addEventListener('change', function (event) {
+paymentImageInput.addEventListener('change', async function (event) {
     const file = event.target.files[0];
     if (file) {
         if (file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                paymentImagePreview.src = e.target.result; // Actualizar vista previa con la imagen cargada localmente
+            const imageUrl = await subirImagen(file); // Subir la imagen y obtener la URL
+            if (imageUrl) {
+                paymentImagePreview.src = imageUrl;
                 paymentImagePreview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
+            } else {
+                paymentImageInput.value = '';
+                paymentImagePreview.style.display = 'none';
+            }
         } else {
             Swal.fire('Archivo no válido', 'Por favor selecciona una imagen.', 'error');
             paymentImageInput.value = '';
             paymentImagePreview.style.display = 'none';
         }
     } else {
-        // Usar URL predefinida si no se carga una imagen local
-        paymentImagePreview.src = "https://i.imgur.com/mwFPYq0.jpeg"; // URL de Imgur
-        paymentImagePreview.style.display = 'block';
+        paymentImagePreview.style.display = 'none';
     }
 });
 
@@ -218,4 +246,3 @@ modalForm.addEventListener('submit', enviarFormulario);
 
 // Inicializar la generación de números
 generarNumeros();
-
