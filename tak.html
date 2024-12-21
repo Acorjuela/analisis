@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa Navideña</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" type="image/jpg" href="img/pixelcut-export.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://sbt.0soft.dev/sheet-best-templates.min.js"></script>
+    <title>Rifa Navideña</title>
+</head>
+
+<body>
+    <section id="hero">
+        <video autoplay muted loop id="video-bg">
+          <source src="img/215694_small.mp4" type="video/mp4">
+        </video>
+        <div class="container">
+            <header class="hdr">
+                <div class="logo">
+                  <img id="loteria" src="img/rey_r.jpg" alt="">
+                </div>
+            </header>
+            <div class="header">
+                <h1>¡Rifa Fenix PERLA $30!</h1>
+                
+                <p>Selecciona tus números de la suerte y participa para ganar una canasta navideña.</p>
+            </div>
+            <div class="buttons">
+            <button id="registerBtn" disabled>Aceptar y Registrar</button>
+            <button class="btn sub-btn" id="openModalButton" onclick="document.location='index.html'">Cerrar</button>
+            </div>
+
+            <div class="options">
+                <label for="selectionOption">Selecciona una opción:</label>
+                <select id="selectionOption">
+                    <option value="" disabled selected>Elige una opción</option>
+                    <option value="1">X1 - $20,000 (1 número)</option>
+                    <option value="2">X2 - $40,000 (2 números)</option>
+                    <option value="3">X3 - $60,000 (3 números)</option>
+                    <option value="4">X4 - $80,000 (4 números)</option>
+                    <option value="5">X5 - $100,000 (5 números)</option>
+                </select>
+            </div>
+
+            <div class="numbers-container" id="numbersContainer"></div>
+
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2>Registrar tus números</h2>
+                <p id="modalSelectedNumbers"></p>
+                <p id="modalTotalValue"></p>
+                <form id="modalForm">
+                    <label for="Nombres">Nombres:</label>
+                    <input type="text" id="Nombres" name="Nombres" placeholder="Ingresa tu nombre" required>
+
+                    <label for="Apellido">Apellido:</label>
+                    <input type="text" id="Apellido" name="Apellido" placeholder="Ingresa tu apellido" required>
+
+                    <label for="Email">Email:</label>
+                    <input type="email" id="Email" name="Email" placeholder="Ingresa tu correo" required>
+
+                    <label for="Ciudad">Ciudad:</label>
+                    <input type="text" id="Ciudad" name="Ciudad" placeholder="Ingresa tu ciudad" required>
+
+                    <label for="País">País:</label>
+                    <input type="text" id="País" name="País" placeholder="Ingresa tu país" required>
+                    
+                    <div class="input-box">
+                    <label for="Nombre_de_responsable">Nombre de Responsable</label>
+                    <select id="Nombre_de_responsable" required>
+                        <option value="">Seleccione un responsable</option>
+                        <option value="Veronica Ares">Veronica Ares</option>
+                    </select>
+                    </div>
+
+                    <div class="input-box">
+                    <label for="Celular_de_responsable">Celular de Responsable</label>
+                    <select id="Celular_de_responsable" required>
+                        <option value="">Seleccione un celular</option>
+                        <option value="3142095181">3142095181</option>
+                        <option value="598 98 862 936">598 98 862 936</option>
+                    </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Premio">Premio:</label>
+                        <select id="Premio" required>
+                            <option value="">Seleccione un premio</option>
+                            <option value="$2.000.000">$2.000.000</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="paymentMethod">Método de Pago:</label>
+                        <select id="paymentMethod" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="binance">Binance</option>
+                            <option value="paix">Paix</option>
+                            <option value="bybit">Bybit</option>
+                            <option value="nequi">Nequi</option>
+                        </select>
+                        <div id="paymentDetailContainer" class="hidden">
+                            <label for="paymentDetail">Detalle de Pago:</label>
+                            <input type="text" id="paymentDetail" name="paymentDetail" readonly>
+                        </div>
+                        <label for="paymentImage"><strong>Subir Comprobante:</strong></label>
+                        <div class="container5">
+                            <div class="folder">
+                              <div class="front-side">
+                                <div class="tip"></div>
+                                <div class="cover"></div>
+                              </div>
+                              <div class="back-side cover"></div>
+                            </div>
+                            <label class="custom-file-upload">
+                              <input class="title" id="paymentImage" type="file" />
+                              Choose a file
+                            </label>
+                          </div>                                                   
+                    </div>
+
+                    <!-- Contenedor para la vista previa de la imagen -->
+                    <img id="paymentImagePreview" style="display: none; max-width: 50%; margin-top: 20px; margin-left: 80px;" />
+
+                    <div class="Fin">
+                    <p>Juega con la Lotería de Boyacá</p>
+                    <p>El 28 de diciembre del 2024</p>
+                    </div>
+
+                    <div class="modal-buttons">
+                        <button class="confirm" type="submit">Confirmar</button>
+                        <button class="cancel" type="button" id="cancelBtn" onclick="document.location='tak.html'">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="JS/time.js"></script>
+    
+</body>
+
+</html>

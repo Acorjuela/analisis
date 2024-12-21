@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FENIX</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="/CSS/style1.css">
+  <link rel="stylesheet" href="/CSS/animations.css">
+  <link rel="stylesheet" href="/CSS/responsive.css">
+</head>
+
+<body>
+
+  <section id="hero">
+    <video autoplay muted loop id="video-bg">
+      <source src="img/71702-540442450_small.mp4" type="video/mp4">
+    </video>
+
+    <div class="section-box">
+
+      <div class="content-wrap">
+        <header>
+          <a class="header-logo"><span>F</span>ENIX</a>
+          <nav>
+            <a class="nav-items active">Home</a>
+            <a class="nav-items">about us</a>
+            <a class="nav-items">projects</a>
+            <a class="nav-items">resources</a>
+            <a class="nav-items">blog</a>
+            <a class="nav-items">contacts</a>
+          </nav>
+        </header>
+        <div class="hero-content">
+          <h3>FENIX</h3>
+          <h1>BIENVENDOS</h1>
+          <div class="countdown">
+
+            <div class="time-box">
+              <span id="days">00</span>
+              <span>Days</span>
+            </div>
+      
+            <div class="time-box">
+              <span id="hours">00</span>
+              <span>Hours</span>
+            </div>
+      
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <span>Minutes</span>
+            </div>
+      
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <span>Seconds</span>
+            </div>
+      
+          </div>
+      
+          <div class="hero-content">
+            <img src="img/fenix.png" class="hero-img" alt="Descripción">
+            <button class="hero-btn" id="openModalButton" onclick="openModal()">Join With Us</button>
+          </div>
+
+          <p id="Gana">Resultado sorteo:</p>
+          <div class="circulo">
+            <h4>P</h4>
+            <h4></h4>
+            <h4></h4>
+            <h4></h4>
+          </div>
+          <div class="circulo">
+            <h4>B</h4>
+            <h4></h4>
+            <h4></h4>
+            <h4></h4>
+          </div>
+          
+          
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="modal" id="payment-modal">
+        <input type="checkbox" name="setingModal" >
+        <div class="header">
+            <img src="img/img1.png" alt="">
+            <img src="img/img2.png" alt="">
+            <img src="img/img3.png" alt="">
+        </div>
+        <div class="content">
+          <div class="option" id="rosado">
+                <h2>PERLA $30</h2>
+                <p>Confirma tu pago de $30.</p>
+                <button class="btn" onclick="document.location='tak.html'" >Confirmar</button>
+            </div>
+            <div class="option" id="naranja">
+                <h2>BRONCE $60</h2>
+                <p>Confirma tu pago de $60.</p>
+                <button onclick="document.location='abut.html'" disabled="" >Confirmar</button>
+            </div>
+            <div class="confirm">
+              <button onclick="closeModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+  <section id="projects">
+    <div class="section-box">
+      <div class="content-grid">
+        <div class="right-grid">
+          <img src="img/45.png" class="about-img">
+        </div>
+        <div class="left-grid">
+          <h3 class="section-sub">projects</h3>
+          <h2 class="section-title">What we did?</h2>
+          <p>
+            1. Project Savannah Shield – A dedicated effort to protect the last remaining herds of African elephants
+            from poaching in Kenya’s savannah.<br><br>
+
+            2. Project Savannah Shield – A dedicated effort to protect the last remaining herds of African elephants
+            from poaching in Kenya’s savannah.<br><br>
+
+            3. Project Savannah Shield – A dedicated effort to protect the last remaining herds of African elephants
+            from poaching in Kenya’s savannah.
+          </p>
+          <button class="action-btn">more projects</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container1">
+      <div class="parent">
+        <div class="card">
+          <img class="promo" src="/img/laptop-2557571_1280.jpg" alt="Flowers in Chania">
+          <div class="content-box">
+            <h1 class="card-title">Educación</h1>
+            <p class="card-content">
+              Capacitación continua para desarrollar habilidades y conocimientos que transformen tu vida.
+            </p>
+          </div>
+          <div class="date-box">
+            <span class="month">Neon</span>
+            <span class="date">3D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="parent card2">
+        <div class="card">
+          <img class="promo" src="/img/undefined-Oct-17-2022-08-59-17-53-PM.webp" alt="Flowers in Chania">
+          <div class="content-box">
+            <h1 class="card-title">Colaboración</h1>
+            <p class="card-content">
+              Trabajo en equipo que potencia el éxito de cada miembro a través del apoyo y la sinergia.
+            </p>
+          </div>
+          <div class="date-box">
+            <span class="month">Neon</span>
+            <span class="date">3D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="parent card3">
+        <div class="card">
+          <img class="promo" src="/img/people-2569234_1280 (1).jpg" alt="Flowers in Chania">
+          <div class="content-box">
+            <h1 class="card-title">Comunidad</h1>
+            <p class="card-content">
+              Un espacio inclusivo donde cada persona es valorada y puede compartir sus sueños.
+            </p>
+          </div>
+          <div class="date-box">
+            <span class="month">Neon</span>
+            <span class="date">3D</span>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+
+  <section id="join-us">
+    <div class="section-box">
+
+      <div class="content-wrap">
+
+        <h3 class="section-sub">join with us</h3>
+        <h2 class="section-title">Save Wildlife, Protect Nature</h2>
+
+        <div class="join-form">
+          <input type="text" class="input-1 i1" placeholder="Your Name">
+          <input type="email" class="input-1 i2" placeholder="Your Email">
+          <input type="text" class="input-1 i3" placeholder="Your Number">
+          <input type="text" class="input-1 i4" placeholder="Your Address">
+
+          <p>Membership</p>
+          <div class="checkbox-wrap">
+            <label><input type="checkbox"> Individual</label>
+            <label><input type="checkbox"> Family</label>
+            <label><input type="checkbox"> Corporate</label>
+          </div>
+
+          <button class="join-btn">be a member</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="footer">
+    <div class="section-box">
+      <div class="footer-grid">
+
+        <div>
+          <h3>Quick Links</h3>
+
+          <a class="footer-items f1">Home</a>
+          <a class="footer-items f2">about us</a>
+          <a class="footer-items f3">projects</a>
+          <a class="footer-items f4">resources</a>
+          <a class="footer-items f5">blog</a>
+          <a class="footer-items f6">contacts</a>
+
+        </div>
+
+        <div>
+          <h3>Contacts</h3>
+
+          <a class="footer-items f1">+1 (800) 555-WILD (9453)</a>
+          <a class="footer-items f2">+1 (888) 999-SAVE (7283)</a>
+          <a class="footer-items f3">info@wildlifeguardians.org</a>
+          <a class="footer-items f4">1234 Forest Drive, 
+            Green Valley, CA 90210</a>
+        </div>
+
+        <div>
+          <h3>Socials</h3>
+
+          <a class="footer-items f1">facebook</a>
+          <a class="footer-items f2">youtubr</a>
+          <a class="footer-items f3">instagram</a>
+          <a class="footer-items f4">linkedin</a>
+          <a class="footer-items f5">twitter</a>
+        </div>
+
+      </div>
+
+      <p class="copyrights">© codegenweb | all rights reserved</p>
+    </div>
+  </section>
+
+  <script src="/JS/script.js"></script>
+  
+</body>
+
+</html>
