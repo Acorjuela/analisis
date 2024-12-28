@@ -4,7 +4,7 @@ const openModalButton = document.getElementById("openModalButton");
 
 // Temporizador
 const countdown = () => {
-  const launchDate = new Date("Dec 27, 2024 00:00:00").getTime(); // Fecha límite
+  const launchDate = new Date("Jan 27, 2025 00:00:00").getTime(); // Fecha límite
   const now = new Date().getTime();
   const timeLeft = launchDate - now;
 
